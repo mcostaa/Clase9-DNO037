@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios" />
+        <title>DNO037</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <p><a href="index.html">Portada</a> <a href="peliculas.html">Juegos</a> <a href="locaciones.html" class="active">Locaciones</a> <a href="ganancias.html">Copias Vendidas</a></p>
+            </nav>
+            <main>
+                <div id="mapa">
+                    <!--acá se mete el mapa-->
+                </div>
+            </main>
+            <footer>
+                <p><a href="https://github.com/mcostaa">Matías Costa</a> <a href="https://github.com/profesorfaco/dno037-2022">DNO037</a></p>
+            </footer>
+        </div>
+<script>
+    var pokeicon =L.icon ({
+        iconUrl: 'img/poke-marker.png',
+        iconSize: [40,50],
+        iconAnchor: [20,48],
+        popupAnchor: [2,-50],
+    })
+
+    var mymap = L.map('mapa').setView([33.5427796,9.9672612], 2);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        id: 'mapbox/dark-v10',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+    L.marker([40.727884,-73.996324],{icon:pokeicon}).addTo(mymap).bindPopup("<b>UNOVA</b>. Pokémon Black y White. Quinta generación, basada en la región Metropolitana de Nueva York.");
+    L.marker([20.483704,-157.606242],{icon:pokeicon}).addTo(mymap).bindPopup("<b>ALOLA</b>. Pokémon Sun y Moon. Séptima generación, basada en las Islas Hawaianas");
+    L.marker([48.854429,2.352273],{icon:pokeicon}).addTo(mymap).bindPopup("<b>KALOS</b>. Pokémon X y Y. Sexta generación, basada en la región del Norte de Francia.");
+    L.marker([52.945007,-1.640290],{icon:pokeicon}).addTo(mymap).bindPopup("<b>GALAR</b>. Pokémon Sword y Shield. Octava generación, basada en el Reino Unido.");
+    L.marker([43.251074,142.965927],{icon:pokeicon}).addTo(mymap).bindPopup("<b>SINNOH</b>. Pokémon Diamond, Pearl y Platinum. Cuarta generación, basada en la Isla Japonesa, Hokkaidō.");
+    L.marker([35.967646,139.688540],{icon:pokeicon}).addTo(mymap).bindPopup("<b>KANTO</b>. Pokémon FireRed y LeafGreen. Primera generación, basada en la región de Kanto, Japon.");
+    L.marker([34.761818,135.606981],{icon:pokeicon}).addTo(mymap).bindPopup("<b>JOHTO</b>. Pokémon SoulSilver y HeartGold. Segunda  generación, basada en la región de Kansai, Japon.");
+    L.marker([32.847776,130.877699],{icon:pokeicon}).addTo(mymap).bindPopup("<b>HOENN</b>. Pokémon OmegaRuby y AlphaSaphire. Tercera generación, basada en la Isla Japonesa, Kyushu.");
+</script>
+    </body>
+</html>
